@@ -3,7 +3,7 @@ const buttonClear = document.querySelector('button.clear');
 const buttonNew = document.querySelector('button.new');
 
 let gridWidth = 480;
-let blockPadding = 15+"px";
+let blockPadding = 14.5+"px";
 buttonClear.addEventListener('click', clearGrid);
 buttonNew.addEventListener('click', newGrid);
 
@@ -28,7 +28,6 @@ function clearGrid(){
     }
 }
 function newGrid(){
-    container.removeChild(grid);
     const body = document.querySelector('body');
     body.removeChild(container);
     container = document.createElement('div');
@@ -44,9 +43,9 @@ function newGrid(){
     for (let k=0; k<grids.length;k++) {
         grids[k].style.backgroundColor = '#ffffff';
     }
-    
-    console.log(lastBlockPadding);
-    for (i = 0; i < gridNumInput*gridNumInput; i++){
+
+
+    for (i = 0; i < gridNumInput*gridNumInput; i++) {
         window.grid = document.createElement('div');
         grid.className = "gridClass";
         grid.style.padding = `${lastBlockPadding}`;
