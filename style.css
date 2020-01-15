@@ -4,6 +4,9 @@
     column-gap: 1px;
     row-gap: 1px; 
     justify-content: center;
+    margin-left: 31.5%;
+    position: absolute;
+    margin-top: 2%;
 }
 
 .containerNew {
@@ -11,6 +14,9 @@
     column-gap: 1px;
     row-gap: 1px; 
     justify-content: center;
+    margin-left: 31.5%;
+    position: absolute;
+    margin-top: 2%;
 }
 
 .container .gridClass {
@@ -25,3 +31,65 @@ body {
     background-color: #cfcfcf;
 }
 
+.textClassFirst {
+    position: absolute;
+    margin-top: 13%;
+    margin-left: 2%
+}
+.textClassSecond {
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 2%
+}
+
+.coloredRGB {
+    position: absolute;
+    margin-top: 13.3%;
+    margin-left: 11%;
+}
+
+.blackRGB {
+    position: absolute;
+    margin-top: 15.18%;
+    margin-left: 11%;
+}
+
+body .clear{
+    background-color: rgb(31, 38, 133); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding: 20px 34.2px;
+}
+
+body .new{
+    background-color: rgb(31, 38, 133); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 13%;
+    padding: 20px 20px;
+}
+
+body .clear:active {
+    transform: scale(1.1);
+}
+
+body .new:active {
+    transform: scale(1.1);
+}
