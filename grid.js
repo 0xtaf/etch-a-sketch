@@ -36,46 +36,66 @@ buttonNew.addEventListener('click', newGrid);
 for (let i = 0; i < 256; i++){
     window.grid = document.createElement('div');
     grid.className = "gridClass";
+    grid.style.backgroundColor = '#fff';
     container.appendChild(grid);
     grid.style.padding = `${blockPadding}`;
     grid.addEventListener('mouseenter', paint);
 
 }
+let colorPercentage = 100;
 
-//default buton ayarla black için
+
 function paint(e) {
     if (coloredRGB.checked != true){
-        let colorPercentage = 0;
-        colorPercentage = (colorPercentage - ((colorPercentage*10)/100));
-        console.log(colorPercentage);
-        e.target.style.backgroundColor = `rgb(${colorPercentage}%,${colorPercentage}%,${colorPercentage}%)`;
+        if ((e.target.style.backgroundColor.match(/\d+/g)[0]) == 255) {
+            colorPercentage = 100;
+            e.target.style.backgroundColor = `rgb(${colorPercentage},${colorPercentage},${colorPercentage})`;
+        } else {
+            colorPercentage = (e.target.style.backgroundColor.match(/\d+/g)[0]);
+            colorPercentage = (colorPercentage - ((colorPercentage*10)/100));
+            e.target.style.backgroundColor = `rgb(${colorPercentage},${colorPercentage},${colorPercentage})`;
+        }
     } else {
-        let x = Math.floor(Math.random() * 250);
-        let y = Math.floor(Math.random() * 200);
-        let z = Math.floor(Math.random() * 230);
-        e.target.style.backgroundColor = `rgb(${x}%,${y}%,${z}%)`;
+        let r = Math.floor(Math.random() * 250);
+        let g = Math.floor(Math.random() * 250);
+        let b = Math.floor(Math.random() * 250);
+        e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
     }
-    
-    // colorPercentage = (colorPercentage - ((colorPercentage*10)/100));
-    // console.log(colorPercentage);
-    // e.target.style.backgroundColor = `rgb(${colorPercentage}%,${colorPercentage}%,${colorPercentage}%)`;
 }
+
+
 
 function clearGrid(){
     let grids = document.querySelectorAll('.gridClass');    
     for (let k=0; k<grids.length;k++) {
-        grids[k].style.backgroundColor = '#ffffff';
+        grids[k].style.backgroundColor = '#fff';
     }
-
-    
 }
+
+
+
 function newGrid(){
     
     body.removeChild(container);
     container = document.createElement('div');
     body.appendChild(container);
     container.className = "containerNew";
-    window.gridNumInput = prompt("how many grids would you like to create in a row?");
+    window.gridNumInput = prompt("How many grids would you like to create in a row?");
+    gridNumInput = parseInt(gridNumInput);
+    console.log(gridNumInput);
+    if(gridNumInput>=150){
+        while (gridNumInput >= 150) {
+            gridNumInput = prompt("Are you trying to blow up your computer? Try again below 150.");
+        }
+    } else if(isNaN(gridNumInput) == true){
+        console.log("anan");
+        while (isNaN(gridNumInput) == true){
+            gridNumInput = prompt("I don't understand human language. Give me a number.");
+        }
+    }
+    
+    
+    
     window.columnWidth = (gridWidth-gridNumInput) / gridNumInput;
     
     let lastBlockPadding = (columnWidth / 2)+"px";
@@ -90,6 +110,7 @@ function newGrid(){
     for (i = 0; i < gridNumInput*gridNumInput; i++) {
         window.grid = document.createElement('div');
         grid.className = "gridClass";
+        grid.style.backgroundColor = '#fff';
         grid.style.padding = `${lastBlockPadding}`;
         container.appendChild(grid);
         grid.addEventListener('mouseenter', paint);
