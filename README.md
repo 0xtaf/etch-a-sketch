@@ -1,3 +1,5 @@
+[View in Browser](https://0xtaf.github.io/etch-a-sketch/)
+
 This project is something between an Etch-A-Sketch and a sketchpad.
 
 Two modes are available for grid colouring: 
